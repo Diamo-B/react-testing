@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import { render } from "../test/customRenderFct/test-utils"
 import MuiMode from "../components/Testing providers/Mui/muiMode";
-import AppProviders from "../components/Testing providers/providers/app-providers";
 
 describe('MuiMode', () => { 
     /* 
@@ -16,9 +16,7 @@ describe('MuiMode', () => {
         //! The ThemeProvider is rendered inside the <Test/> component not the <MuiMode/> component. Which means that the theme won't be changed to dark
         // !Error : render(<MuiMode/>) 
         //! To fix it, we need to use the wrapper option natively found within the options of the render method
-        render(<MuiMode/>,{
-            wrapper: AppProviders
-        })
+        render(<MuiMode/>)
         const headingElement = screen.getByRole("heading")
         expect(headingElement).toHaveTextContent("dark mode")
     })

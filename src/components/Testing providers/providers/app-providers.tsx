@@ -1,4 +1,4 @@
-import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material";
 import { ReactNode } from "react";
 
 const theme = createTheme({
@@ -10,7 +10,6 @@ const theme = createTheme({
 const AppProviders = ({children}:{children:ReactNode}) => {
     return ( 
         <ThemeProvider theme={theme}>
-            <CssBaseline/>
             {children}
         </ThemeProvider>
      );
